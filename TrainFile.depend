@@ -1,0 +1,19 @@
+# depslib dependency file v1.0
+1524810352 source:/home/codeblock/TrainFile/main.cpp
+	<iostream>
+	<vector>
+	<string>
+	<sstream>
+	<fstream>
+	"Data.h"
+
+1524811394 source:/home/codeblock/TrainFile/Data.cpp
+	<iostream>
+	<vector>
+	<string>
+	<sstream>
+	<fstream>
+	"Data.h"
+
+1524811394 /home/codeblock/TrainFile/Data.h
+
