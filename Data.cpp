@@ -7,23 +7,18 @@
 using namespace std;
 using std::vector;
 
- std::vector<std::vector <double> > matrice(0, vector<double>(0,0)) ;
-   std::vector<std::vector <double> > matrice1(0, vector<double>(0,0)) ;
-   std::vector<double> output;
 
 
-Data::Data()
-{
-    //ctor
-}
 
-void Data::readData(char *input){
+
+
+void Data::readData1(char *input, vector<vector<double> > &mat1 ){
 
 double m;
  vector<double> temp;
 
  ifstream myfile;
- myfile.open("pesha.txt");
+ myfile.open("mat1.txt");
 
   if (myfile.is_open())
   {
@@ -31,8 +26,8 @@ double m;
     { temp.push_back(m);
        if(myfile.peek()=='\n'){
 
- matrice.push_back(temp);
- matrice1.push_back(temp);
+ mat1.push_back(temp);
+
     temp.clear();
 
         }
@@ -46,37 +41,57 @@ else cout << "Unable to open file";
 }
 
 
-void Data::outputData(void){
 
-double sum = 0;
-ofstream outfile;
-outfile.open("train.txt");
-cout<<endl;
+void Data::readData2(char *input, vector<vector<double> > &mat2 ){
 
-cout<<"mtrice size tjeter   "<<matrice1.size()<<endl;
+double m;
+ vector<double> temp;
 
+ ifstream myfile;
+ myfile.open("mat2.txt");
 
-for(int i=0;i<matrice1.size();i++){
+  if (myfile.is_open())
+  {
+    while ( myfile>>m )
+    { temp.push_back(m);
+       if(myfile.peek()=='\n'){
 
+ mat2.push_back(temp);
 
+    temp.clear();
 
-    for(int j=0;j<matrice1[i].size();j++){
+        }
 
-      sum+=matrice1[i][j];
-      output.push_back(sum);
+       }
 
+    myfile.close();
+}
+else cout << "Unable to open file";
 
-
-
- cout<<matrice1[i][j]<<"\t";
- outfile<<matrice1[i][j]<<"\t";
 }
 
-outfile<<"out: "<<sum;
+
+
+void Data::mutiplication(vector<vector<double> > &mat1,vector<vector<double> > &mat2){
+
+ std::vector<double> output;
+
+
+
+
+for(int i=0;i<mat1.size();i++){
+
+
+    for(int j=0;j<mat1[i].size();j++){
+
+
+    cout<<i<<j<<"\t"<<mat1[i][j]+mat2[i][j]<<"\n";
+
+
+}
+
 cout<<endl;
-outfile<<endl;
-sum=0;
+
 
   }
-
 }

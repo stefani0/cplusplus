@@ -17,11 +17,14 @@ int main(int argc, char const *argv[])
 
 
 Data obj;
-
+  vector< vector<double> > mat1;
+  vector< vector<double> > mat2;
 // lexo file
 
-obj.readData((char*)argv[1]);
-obj.outputData();
+obj.readData1((char*)argv[1],mat1);
+obj.readData2((char*)argv[1],mat2);
+
+obj.mutiplication (mat1,mat2);
 
     return 0;
 }
